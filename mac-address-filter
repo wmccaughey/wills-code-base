@@ -1,0 +1,4 @@
+mac_addresses = df['mac_address']
+mac_filter = re.compile("^([0-9A-F]){12}$")
+mac_addresses = list(filter(mac_filter.match, mac_addresses))
+mac_addresses = list(dict.fromkeys(mac_addresses))
