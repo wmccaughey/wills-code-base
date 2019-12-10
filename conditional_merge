@@ -1,0 +1,4 @@
+def cond_merge(df1, df2):
+    df1 = df1.merge(df2, on = 'MAC_ADDRESS', how = 'left')
+    df1 = df1[(df1.ENTERED_DATETIME < df1.Day_of_Visit)]
+    return df1
