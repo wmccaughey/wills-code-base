@@ -1,0 +1,6 @@
+i = [fs.ls('/raw/fault/')[0]]
+foo = pd.read_csv(fs.open(fs.ls(i[0])[0],"rb"),encoding = "ISO-8859-1")
+
+for i in fs.ls('/raw/fault/')[1:]:
+    print(i)
+    foo = pd.concat([foo,pd.read_csv(fs.open(fs.ls(i)[0],"rb"),encoding = "ISO-8859-1")])
