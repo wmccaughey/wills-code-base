@@ -1,0 +1,10 @@
+##import library
+from pyarrow import hdfs, csv, parquet
+fs = hdfs.connect("server location")
+
+##folder explorer
+fs.ls('/folder/location')
+
+##file import
+with fs.open('/folder/location') as f:
+    df = pd.read_parquet(f)
