@@ -1,0 +1,23 @@
+start_date = input('enter start date yyyy-mm-dd')
+end_date = input('enter end date yyyy-mm-dd')
+dates = pd.date_range(start_date,end_date)
+
+dataframes = []
+for date in dates:
+    
+    year,month,day=date.year,date.month,date.day
+    if month < 10:
+        month ='0'+str(month)
+    if day < 10:
+        day ='0'+str(day)
+    
+    try:
+        file = 'hdfs://file/location/name'.format(year,month,day)
+        print(file)
+
+        df = dd.read_parquet(file, columns=['a,b,c,d'])
+        df = df[df.mac.isin(df.column)]
+        dataframes.append(df)
+    except:
+        print("File not found")
+        pass
