@@ -1,0 +1,1 @@
+averages['rNPS_group'] = np.where(averages['Overall_Bundle_LTR']>=8, 'promoters', (np.where(averages['Overall_Bundle_LTR']<=2, 'super detractors', (np.where((averages['Overall_Bundle_LTR']>=3) & (averages['Overall_Bundle_LTR']<=6), 'detractors', 'neutrals')))))
