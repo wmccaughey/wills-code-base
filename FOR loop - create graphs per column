@@ -1,0 +1,12 @@
+labels = ['promoters','neutrals','detractors','super detractors']
+
+for column in rnps_averages.columns:
+    fig, ax = plt.subplots(figsize = (14,7))
+    rnps_averages[column].plot(ax=ax, style='o', markersize=20)
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_xlim(-0.5, len(labels)-0.5)
+    plt.title('rNPS Groups Average ' + column + ' Performance')
+    plt.ylabel(column)
+    ##plt.savefig('rNPS_Average_' + column + '_Performance.png')
+    plt.show()
